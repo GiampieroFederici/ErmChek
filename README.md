@@ -2,13 +2,17 @@
 
 **Italiano** | [English](#english)
 
-Come funziona e quali modelli usa, in due pagine: [docs/DESCRIZIONE.md](docs/DESCRIZIONE.md). In English: [docs/DESCRIPTION.md](docs/DESCRIPTION.md).
+Programma per Windows pensato per la microbiologia predittiva, adatto agli insaccati, ai salumi e agli altri alimenti pronti.
 
-ErmChek è un programma per Windows che aiuta a ragionare su *Listeria monocytogenes* negli alimenti pronti (in inglese *ready-to-eat*), con attenzione ai salumi.
-Funziona senza internet.
-È uno strumento didattico e di supporto alle decisioni.
+- Verifica se un lotto rispetta i criteri di legge per *Listeria* e *Salmonella*.
+- Simula quanto cresce *Listeria* nel tempo, fase per fase.
+- Stima quanta *Listeria* c'era all'inizio, partendo da quella trovata oggi.
+- Crea report chiari in PDF ed Excel, in italiano o in inglese.
+- Funziona senza internet.
 
-## Cosa fa
+Come funziona e quali modelli usa, in due pagine: [docs/DESCRIZIONE.md](docs/DESCRIZIONE.md).
+
+## Cosa fa, in dettaglio
 
 - **Conformità del lotto (Modulo A).** Confronta i risultati delle analisi con i criteri del Reg. (CE) 2073/2005, come modificato dal Reg. (UE) 2024/2895. Dice anche se i risultati sono compatibili con un lotto omogeneo. Per *Salmonella* fa solo questa parte.
 - **Crescita (Modulo B).** Simula quanto cresce *Listeria* nel tempo, fase per fase (temperatura, pH, aw, nitrito, batteri lattici). Il motore è quello di FSSP (Mejlholm e Dalgaard).
@@ -17,6 +21,7 @@ Funziona senza internet.
 Ogni risultato si può salvare come report PDF, come file Excel e come CSV della curva.
 Il PDF mette la risposta in alto, in un riquadro colorato con il testo esplicito.
 I grafici sono sempre in inglese.
+È uno strumento didattico e di supporto alle decisioni.
 
 ## Installazione da sorgente
 
@@ -106,11 +111,17 @@ Carattere Atkinson Hyperlegible: SIL Open Font License 1.1 (`assets/fonts/OFL.tx
 
 # ErmChek (English)
 
-ErmChek is a Windows program that helps you reason about *Listeria monocytogenes* in ready-to-eat foods, with a focus on cured meats.
-It works offline.
-It is a teaching and decision-support tool.
+A Windows program for predictive microbiology, suited to fermented sausages, cured meats and other ready-to-eat foods.
 
-## What it does
+- Checks whether a lot meets the legal criteria for *Listeria* and *Salmonella*.
+- Simulates how much *Listeria* grows over time, phase by phase.
+- Estimates how much *Listeria* there was at the start, from what was found today.
+- Writes clear PDF and Excel reports, in English or Italian.
+- Works offline.
+
+How it works and which models it uses, in two pages: [docs/DESCRIPTION.md](docs/DESCRIPTION.md).
+
+## What it does, in detail
 
 - **Lot compliance (Module A).** It compares test results with the criteria of Regulation (EC) 2073/2005, as amended by Regulation (EU) 2024/2895. It also tells you whether the results fit a homogeneous lot. For *Salmonella* it does this part only.
 - **Growth (Module B).** It simulates how much *Listeria* grows over time, phase by phase (temperature, pH, aw, nitrite, lactic acid bacteria). The engine is the FSSP one (Mejlholm and Dalgaard).
@@ -119,6 +130,7 @@ It is a teaching and decision-support tool.
 Every result can be saved as a PDF report, an Excel file and a CSV of the curve.
 The PDF puts the answer at the top, in a coloured box with explicit text.
 Charts are always in English.
+It is a teaching and decision-support tool.
 
 ## Install from source
 
