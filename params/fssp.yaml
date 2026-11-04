@@ -1,0 +1,54 @@
+# Parametri dei modelli secondari "cardinal parameter" di FSSP 4.0 (DTU Food), letti da ermchek/core/fssp/modelli.py.
+# Valori identici a quelli del motore di profilemetananni, provati uguali a FSSP.Models.dll 1.1.0.21167
+# (382 casi su 382, prova F1 di PMN). Tabella e pagina della fonte: "da completare" dove non ancora verificate
+# sul testo (decisione del responsabile del progetto, 03/11/2026: si usa il valore validato, segnato da verificare).
+# Unità: mu_ref in h^-1 a 25 °C; temperature in °C; CO2 in ppm disciolta; fenoli e nitrito in ppm; MIC in mM di acido non dissociato.
+
+fonti:
+  mejlholm_2007a: "Mejlholm O, Dalgaard P (2007). Modeling and predicting the growth boundary of Listeria monocytogenes in lightly preserved seafood. J Food Prot 70(1):70-84. doi:10.4315/0362-028x-70.1.70"
+  mejlholm_2007b: "Mejlholm O, Dalgaard P (2007). Modeling and predicting the growth of lactic acid bacteria in lightly preserved seafood and their inhibiting effect on Listeria monocytogenes. J Food Prot 70(11):2485-2497. doi:10.4315/0362-028x-70.11.2485"
+  mejlholm_2009: "Mejlholm O, Dalgaard P (2009). Development and validation of an extensive growth and growth boundary model for Listeria monocytogenes in lightly preserved and ready-to-eat shrimp. J Food Prot 72(10):2132-2143. doi:10.4315/0362-028x-72.10.2132"
+  mejlholm_2010: "Mejlholm O et al. (2010). Predicting growth rates and growth boundary of Listeria monocytogenes - An international validation study with focus on processed and ready-to-eat meat and seafood. Int J Food Microbiol 141(3):137-150. doi:10.1016/j.ijfoodmicro.2010.04.026"
+  mejlholm_2013: "Mejlholm O, Dalgaard P (2013). Development and validation of an extensive growth and growth boundary model for psychrotolerant Lactobacillus spp. in seafood and meat products. Int J Food Microbiol 167(2):244-260. doi:10.1016/j.ijfoodmicro.2013.09.013"
+  mejlholm_2015: "Mejlholm O, Dalgaard P (2015). Modelling and predicting the simultaneous growth of Listeria monocytogenes and psychrotolerant lactic acid bacteria in processed seafood and mayonnaise-based seafood salads. Food Microbiol 46:1-14. doi:10.1016/j.fm.2014.07.005"
+  le_marc_2002: "Le Marc Y et al. (2002). Modelling the growth kinetics of Listeria as a function of temperature, pH and organic acid concentration. Int J Food Microbiol 73(2-3):219-237. doi:10.1016/s0168-1605(01)00640-7"
+  baranyi_1994: "Baranyi J, Roberts TA (1994). A dynamic approach to predicting bacterial growth in food. Int J Food Microbiol 23(3-4):277-294. doi:10.1016/0168-1605(94)90157-0"
+  gimenez_2004: "Giménez B, Dalgaard P (2004). Modelling and predicting the simultaneous growth of Listeria monocytogenes and spoilage micro-organisms in cold-smoked salmon. J Appl Microbiol 96(1):96-109. doi:10.1046/j.1365-2672.2003.02137.x"
+
+listeria:
+  nome: "Listeria monocytogenes"
+  fonte: [mejlholm_2009, mejlholm_2010, le_marc_2002]
+  tabella: "da completare"
+  mu_ref: 0.419
+  tmin: -2.83
+  ph_min: 4.97
+  aw_min: 0.923
+  co2_max: 3140.0
+  fenoli_max: 32.0
+  nitrito_max: 350.0
+  mic: {acetico: 10.3, benzoico: 0.349, citrico: 2.119, diacetato: 4.8, lattico: 3.79, sorbico: 1.896}
+  # termine dell'acido in mu_max: [lin, n] = (1 - c/MIC)^n ; [rad, n] = (1 - sqrt(c/MIC))^n
+  forma_acidi: {lattico: [lin, 1], acetico: [rad, 1], diacetato: [rad, 1], citrico: [lin, 1], sorbico: [lin, 1], benzoico: [lin, 1]}
+  log_nmax: 8.5
+  tempo_ritardo_relativo: 4.5   # RLT, Mejlholm & Dalgaard 2007b (lag = RLT * ln2 / mu_max)
+  prestazioni: "Bias 1,0 e accuratezza 1,5 per mu_max nella validazione internazionale su carne e pesce (Mejlholm et al. 2010, abstract)."
+
+lab:
+  nome: "Lactobacillus spp. psicrotolleranti (LAB)"
+  fonte: [mejlholm_2013, mejlholm_2015]
+  tabella: "da completare"
+  mu_ref: 0.583
+  tmin: -5.246
+  ph_min: 4.24
+  aw_min: 0.928
+  co2_max: 6691.0
+  fenoli_max: 40.28
+  nitrito_max: 2780.0
+  mic: {acetico: 151.3, benzoico: 1.51, citrico: 10.3, diacetato: 33.3, lattico: 12.0, sorbico: 12.6}
+  forma_acidi: {lattico: [lin, 1], acetico: [rad, 1], diacetato: [rad, 1], citrico: [lin, 2], sorbico: [lin, 2], benzoico: [lin, 2]}
+  log_nmax: 8.5
+  prestazioni: "Bias 1,08 e accuratezza 1,27 per mu_max su prodotti di pesce e carne (Mejlholm & Dalgaard 2013, abstract)."
+
+interazione:
+  modello: "effetto Jameson classico (Giménez & Dalgaard 2004; Mejlholm & Dalgaard 2007b, 2015)"
+  limite: "Con pH < 6,0 il modello combinato Listeria + LAB ha dato prestazioni inaccettabili in insalate di mare (prevede non crescita dove c'era crescita): Mejlholm & Dalgaard 2015, abstract."

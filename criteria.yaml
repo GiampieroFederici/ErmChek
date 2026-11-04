@@ -1,0 +1,203 @@
+# Criteri microbiologici per Listeria monocytogenes negli alimenti pronti (RTE).
+# Fonte: Reg. (CE) n. 2073/2005, Allegato I, capitolo 1, righe 1.1, 1.2, 1.3, come applicabile
+# dal 1 luglio 2026 dopo il Reg. (UE) 2024/2895 (GU 21.11.2024). Testi ufficiali dell'Ufficio delle
+# pubblicazioni: CELEX 02005R2073-20260701 (consolidato) e CELEX 32024R2895.
+# Letto SOLO con yaml.safe_load. Date in formato "AAAA-MM-GG"; null = nessun limite.
+#
+# Campi di ogni riga:
+#   id                  identificativo univoco
+#   patogeno            listeria (predefinito) | salmonella
+#   categoria           1.1 | 1.2 | 1.3
+#   fbo_dimostra_100    true/false = la riga vale solo se l'OSA produttore ha / non ha dimostrato
+#                       all'autorità competente che Lm resta <= 100 UFC/g per tutta la shelf-life;
+#                       null = indipendente
+#   n, c                piano di campionamento
+#   limite              {tipo: assenza, massa_g: 25} oppure {tipo: max_ufc_g, valore: 100}
+#   metodo              metodo analitico di riferimento
+#   fase                immesso_sul_mercato_shelf_life | prima_di_lasciare_controllo_osa
+#   valido_dal/fino     intervallo di applicazione (inclusi)
+#   riferimento         riferimento normativo della riga
+
+criteri:
+  - id: "1.1"
+    categoria: "1.1"
+    # Alimenti pronti per lattanti e alimenti pronti a fini medici speciali
+    fbo_dimostra_100: null
+    n: 10
+    c: 0
+    limite: {tipo: assenza, massa_g: 25}
+    metodo: "EN/ISO 11290-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.1 (CELEX 02005R2073-20260701)"
+
+  - id: "1.2a"
+    categoria: "1.2"
+    # Alimenti pronti in grado di favorire la crescita di Lm, diversi da quelli della 1.1
+    fbo_dimostra_100: true
+    n: 5
+    c: 0
+    limite: {tipo: max_ufc_g, valore: 100}
+    metodo: "EN/ISO 11290-2"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.2, limite 100 UFC/g; dal 2026-07-01 nel testo modificato dal Reg. (UE) 2024/2895, nota *1 (CELEX 02005R2073-20260701)"
+
+  - id: "1.2b"
+    categoria: "1.2"
+    # Dal 1 luglio 2026: assenza in 25 g per tutta la shelf-life se l'OSA non ha dimostrato i 100 UFC/g
+    fbo_dimostra_100: false
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 25}
+    metodo: "EN/ISO 11290-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: "2026-07-01"
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.2, assenza in 25 g, come modificato dal Reg. (UE) 2024/2895 (CELEX 02005R2073-20260701; CELEX 32024R2895)"
+
+  - id: "1.2b_ante_2026"
+    categoria: "1.2"
+    # Testo in vigore fino al 30 giugno 2026: assenza in 25 g prima che l'alimento lasci il controllo
+    # immediato dell'OSA che lo ha prodotto
+    fbo_dimostra_100: false
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 25}
+    metodo: "EN/ISO 11290-1"
+    fase: prima_di_lasciare_controllo_osa
+    valido_dal: null
+    valido_fino: "2026-06-30"
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.2, assenza in 25 g, testo in vigore fino al 2026-06-30 (prima del Reg. (UE) 2024/2895)"
+
+  - id: "1.3"
+    categoria: "1.3"
+    # Alimenti pronti non in grado di favorire la crescita di Lm, diversi da quelli della 1.1
+    fbo_dimostra_100: null
+    n: 5
+    c: 0
+    limite: {tipo: max_ufc_g, valore: 100}
+    metodo: "EN/ISO 11290-2"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.3 (CELEX 02005R2073-20260701)"
+
+# Nota 6: rientrano automaticamente nella 1.3 i prodotti con pH <= 4,4 o aw <= 0,92, quelli con
+# pH <= 5,0 e aw <= 0,94 e quelli con shelf-life inferiore a 5 giorni. Gli altri prodotti possono
+# rientrare nella 1.3 solo con una giustificazione scientifica.
+
+  # ---- Salmonella (stesso testo consolidato; metodo EN ISO 6579-1; n=5, c=0, m=M) ----
+
+  - id: "S1.4"
+    patogeno: salmonella
+    categoria: "1.4"
+    # Carni macinate e preparazioni di carne destinate a essere consumate crude
+    fbo_dimostra_100: null
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 25}
+    metodo: "EN ISO 6579-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.4 (CELEX 02005R2073-20260701)"
+
+  - id: "S1.5"
+    patogeno: salmonella
+    categoria: "1.5"
+    # Carni macinate e preparazioni di carne di pollame destinate a essere consumate cotte
+    fbo_dimostra_100: null
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 25}
+    metodo: "EN ISO 6579-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.5 (CELEX 02005R2073-20260701)"
+
+  - id: "S1.6"
+    patogeno: salmonella
+    categoria: "1.6"
+    # Carni macinate e preparazioni di carne di altre specie destinate a essere consumate cotte
+    fbo_dimostra_100: null
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 10}
+    metodo: "EN ISO 6579-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.6 (CELEX 02005R2073-20260701)"
+
+  - id: "S1.7"
+    patogeno: salmonella
+    categoria: "1.7"
+    # Carni separate meccanicamente (nota 7)
+    fbo_dimostra_100: null
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 10}
+    metodo: "EN ISO 6579-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.7 (CELEX 02005R2073-20260701)"
+
+  - id: "S1.8"
+    patogeno: salmonella
+    categoria: "1.8"
+    # Prodotti a base di carne destinati a essere consumati crudi (salami), esclusi quelli in cui il processo o la composizione eliminano il rischio Salmonella
+    fbo_dimostra_100: null
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 25}
+    metodo: "EN ISO 6579-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.8 (CELEX 02005R2073-20260701)"
+
+  - id: "S1.9"
+    patogeno: salmonella
+    categoria: "1.9"
+    # Prodotti a base di carne di pollame destinati a essere consumati cotti
+    fbo_dimostra_100: null
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 25}
+    metodo: "EN ISO 6579-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.9 (CELEX 02005R2073-20260701)"
+
+  - id: "S1.28"
+    patogeno: salmonella
+    categoria: "1.28"
+    # Carni fresche di pollame (solo S. Typhimurium e S. Enteritidis)
+    fbo_dimostra_100: null
+    n: 5
+    c: 0
+    limite: {tipo: assenza, massa_g: 25}
+    metodo: "EN ISO 6579-1"
+    fase: immesso_sul_mercato_shelf_life
+    valido_dal: null
+    valido_fino: null
+    riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, riga 1.28 (CELEX 02005R2073-20260701)"
+
+nota_6:
+  ph_max: 4.4
+  aw_max: 0.92
+  ph_max_combinato: 5.0
+  aw_max_combinato: 0.94
+  shelf_life_giorni_minima: 5
+  riferimento: "Reg. (CE) 2073/2005, All. I, cap. 1, nota 6 (CELEX 02005R2073-20260701)"
+
+# Potenziale di crescita (growth potential) da challenge test: > 0,5 log10 -> categoria 1.2; <= 0,5 -> 1.3
+potenziale_crescita:
+  soglia_log: 0.5
+  riferimento: "EURL Lm Technical Guidance Document v4 (2021), amendment 1 del 2026-02-26, DOI 10.5281/zenodo.18783767"
