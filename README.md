@@ -227,3 +227,11 @@ Full model sources are in `params/fssp.yaml` and in every report.
 
 Code: MIT licence (`LICENSE`).
 Atkinson Hyperlegible font: SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).
+
+---
+
+### Come è stato sviluppato / How it was developed
+
+ErmChek è stato sviluppato con l'aiuto di modelli linguistici (in inglese *large language models*, LLM), con il metodo chiamato *vibe coding*: gran parte del codice l'ha scritta il modello, su indicazione di una persona. Giampiero Federici ha curato ogni passo: ha stabilito che cosa il programma deve fare, ha deciso le scelte scientifiche (modelli, parametri, incertezza, criteri di legge) e ha controllato i risultati. Il motore di crescita dà gli stessi risultati di FSSP in 23 casi su 23 e il programma passa 161 prove automatiche.
+
+ErmChek was developed with the help of large language models (LLMs), with the method called *vibe coding*: most of the code was written by the model, following a person's directions. Giampiero Federici supervised every step: he set what the program must do, made the scientific choices (models, parameters, uncertainty, legal criteria) and checked the results. The growth engine gives the same results as FSSP in 23 cases out of 23, and the program passes 161 automatic tests.
