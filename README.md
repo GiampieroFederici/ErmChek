@@ -232,6 +232,28 @@ Atkinson Hyperlegible font: SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).
 
 ### Come è stato sviluppato / How it was developed
 
-ErmChek è stato sviluppato con l'aiuto di modelli linguistici (in inglese *large language models*, LLM), con il metodo chiamato *vibe coding*: gran parte del codice l'ha scritta il modello, su indicazione di una persona. Giampiero Federici ha curato ogni passo: ha stabilito che cosa il programma deve fare, ha deciso le scelte scientifiche (modelli, parametri, incertezza, criteri di legge) e ha controllato i risultati. Il motore di crescita dà gli stessi risultati di FSSP in 23 casi su 23 e il programma passa 161 prove automatiche.
+ErmChek è stato sviluppato con l'aiuto di modelli linguistici (in inglese *large language models*, LLM), con il metodo chiamato *vibe coding*: quindi il codice è stato sviluppato dall'ambiente di sviluppo (in inglese *harness*) Claude Code e da Giampiero Federici, che oltretutto ha curato ogni passo: ha stabilito che cosa il programma deve fare, ha deciso le scelte scientifiche (modelli, parametri, incertezza, criteri di legge) e ha controllato i risultati. Il motore di crescita dà gli stessi risultati di FSSP in 23 casi su 23 e il programma passa 161 prove automatiche.
 
-ErmChek was developed with the help of large language models (LLMs), with the method called *vibe coding*: most of the code was written by the model, following a person's directions. Giampiero Federici supervised every step: he set what the program must do, made the scientific choices (models, parameters, uncertainty, legal criteria) and checked the results. The growth engine gives the same results as FSSP in 23 cases out of 23, and the program passes 161 automatic tests.
+ErmChek was developed with the help of large language models (LLMs), with the method called *vibe coding*: the code was developed by the Claude Code harness and by Giampiero Federici, who also supervised every step: he set what the program must do, made the scientific choices (models, parameters, uncertainty, legal criteria) and checked the results. The growth engine gives the same results as FSSP in 23 cases out of 23, and the program passes 161 automatic tests.
+
+### Fonti dei modelli / Model sources
+
+Crescita di *Listeria* e batteri lattici (motore FSSP 4.0) / *Listeria* and lactic acid bacteria growth (FSSP 4.0 engine):
+
+- Mejlholm O, Dalgaard P (2007). Modeling and predicting the growth boundary of *Listeria monocytogenes* in lightly preserved seafood. J Food Prot 70(1):70-84. [doi:10.4315/0362-028x-70.1.70](https://doi.org/10.4315/0362-028x-70.1.70)
+- Mejlholm O, Dalgaard P (2007). Modeling and predicting the growth of lactic acid bacteria in lightly preserved seafood and their inhibiting effect on *Listeria monocytogenes*. J Food Prot 70(11):2485-2497. [doi:10.4315/0362-028x-70.11.2485](https://doi.org/10.4315/0362-028x-70.11.2485)
+- Mejlholm O, Dalgaard P (2009). Development and validation of an extensive growth and growth boundary model for *Listeria monocytogenes* in lightly preserved and ready-to-eat shrimp. J Food Prot 72(10):2132-2143. [doi:10.4315/0362-028x-72.10.2132](https://doi.org/10.4315/0362-028x-72.10.2132)
+- Mejlholm O et al. (2010). Predicting growth rates and growth boundary of *Listeria monocytogenes*: an international validation study with focus on processed and ready-to-eat meat and seafood. Int J Food Microbiol 141(3):137-150. [doi:10.1016/j.ijfoodmicro.2010.04.026](https://doi.org/10.1016/j.ijfoodmicro.2010.04.026)
+- Mejlholm O, Dalgaard P (2013). Development and validation of an extensive growth and growth boundary model for psychrotolerant *Lactobacillus* spp. in seafood and meat products. Int J Food Microbiol 167(2):244-260. [doi:10.1016/j.ijfoodmicro.2013.09.013](https://doi.org/10.1016/j.ijfoodmicro.2013.09.013)
+- Mejlholm O, Dalgaard P (2015). Modelling and predicting the simultaneous growth of *Listeria monocytogenes* and psychrotolerant lactic acid bacteria in processed seafood and mayonnaise-based seafood salads. Food Microbiol 46:1-14. [doi:10.1016/j.fm.2014.07.005](https://doi.org/10.1016/j.fm.2014.07.005)
+- Le Marc Y et al. (2002). Modelling the growth kinetics of *Listeria* as a function of temperature, pH and organic acid concentration. Int J Food Microbiol 73(2-3):219-237. [doi:10.1016/s0168-1605(01)00640-7](https://doi.org/10.1016/s0168-1605(01)00640-7)
+- Giménez B, Dalgaard P (2004). Modelling and predicting the simultaneous growth of *Listeria monocytogenes* and spoilage micro-organisms in cold-smoked salmon. J Appl Microbiol 96(1):96-109. [doi:10.1046/j.1365-2672.2003.02137.x](https://doi.org/10.1046/j.1365-2672.2003.02137.x)
+
+Modello alternativo / Alternative model:
+
+- Baranyi J, Roberts TA (1994). A dynamic approach to predicting bacterial growth in food. Int J Food Microbiol 23(3-4):277-294. [doi:10.1016/0168-1605(94)90157-0](https://doi.org/10.1016/0168-1605(94)90157-0)
+
+Criteri di legge e incertezza di misura / Legal criteria and measurement uncertainty:
+
+- Regolamento (CE) n. 2073/2005 sui criteri microbiologici applicabili ai prodotti alimentari, come modificato dal Regolamento (UE) 2024/2895 / Regulation (EC) No 2073/2005 on microbiological criteria for foodstuffs, as amended by Regulation (EU) 2024/2895.
+- EURL *Lm* Technical Guidance Document v4 (2021), emendamento 1 / amendment 1 (26/02/2026). [doi:10.5281/zenodo.18783767](https://doi.org/10.5281/zenodo.18783767)
