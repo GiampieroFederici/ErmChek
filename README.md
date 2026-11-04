@@ -1,5 +1,34 @@
 # ErmChek
 
+<p align="center">
+  <img src="assets/logo/ErmChek_logo.png" alt="ErmChek" width="260">
+</p>
+
+## [Scarica per Windows / Download for Windows](https://github.com/GiampieroFederici/ErmChek/releases/download/v1.0.0/ErmChek_1.0.0.zip)
+
+| Italiano | English |
+|---|---|
+| **1.** Fai clic sul link qui sopra. Lo zip (110 MB) va nella cartella **Download**. | **1.** Click the link above. The zip (110 MB) goes to your **Downloads** folder. |
+| **2.** Clic destro sullo zip, scegli **Estrai tutto**, poi **Estrai**. | **2.** Right-click the zip, choose **Extract All**, then **Extract**. |
+| **3.** Nella cartella nuova, doppio clic su **Installa ErmChek**. | **3.** In the new folder, double-click **Installa ErmChek**. |
+| Fatto: ErmChek si apre da solo e la sua icona resta sul **Desktop**. | Done: ErmChek opens by itself and its icon stays on the **Desktop**. |
+
+**Se Windows mostra un avviso** (succede perché il programma non ha una firma digitale a pagamento):
+
+- "Apri file - Avviso di sicurezza": fai clic su **Esegui**.
+- "Windows ha protetto il PC": fai clic su **Ulteriori informazioni**, poi su **Esegui comunque**.
+
+La prima apertura può richiedere fino a un minuto. Serve Windows 11. Non serve internet, non servono permessi di amministratore.
+
+**If Windows shows a warning** (it happens because the program has no paid digital signature):
+
+- "Open File - Security Warning": click **Run**.
+- "Windows protected your PC": click **More info**, then **Run anyway**.
+
+The first start can take up to a minute. You need Windows 11. No internet and no administrator rights needed.
+
+---
+
 **Italiano** | [English](#english)
 
 Programma per Windows pensato per la microbiologia predittiva, adatto agli insaccati, ai salumi e agli altri alimenti pronti.
